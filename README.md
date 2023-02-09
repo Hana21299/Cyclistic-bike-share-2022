@@ -44,15 +44,15 @@ By analyzing the [previous 12 months of Cyclistic trip data](https://divvy-tripd
 
 * Data imported into **Microsoft SQL Server Management Studio** for manipulation and analysis using SQL.
 * Visualizations to be developed in **Microsoft Power BI**.
-* Datatypes made consistent and then consolidated into one view using [this query]().
+* Datatypes made consistent and then consolidated into one view using [this query](uncleaned_data.sql).
 * To assist in analysis, 4 new columns were added (ride length in meters, ride start day name and ride duration in seconds).
 * `5,563,947` rows were returned but required cleaning.
 * **Cleaning process** :
-  * Check eachs columns in ##uncleaned_data to find probems using [this query]().
+  * Check eachs columns in ##uncleaned_data to find probems using [this query](check_data.sql).
   * After checking, there are few problems needed to be fixed:
      1. Negative and zero ride duration values found
      2. Zero ride distance value found
-  * Remove negative and zero values using [this query]().
+  * Remove negative and zero values using [this query](cleaned_data.sql).
 > Following the cleaning and consolidating data in one table, `5,252,085` rows were returned for proceeding to analysis. `JOIN`, `WITH`, `UNION ALL`, `WHERE`, _subqueries_ and many other SQL functions were used.
 ## Analysis and Viz
 
