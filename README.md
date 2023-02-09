@@ -17,34 +17,46 @@ The company operates in Chicago with around 6000 bicycles at 700 stations.
 
 Maximizing the number of annual members will be key to future growth as it ensures financial sustainability and customer retention. The insights can help devise effective marketing strategies aimed to convert more casual riders into annual members.
 
-## Business Task
+### Business Task
 
 How do annual members and casual riders use Cyclistic bikes differently ?
 
 > **Objective** : To clean, analyze and visualize the data to observe how casual riders use the bike rentals differently from annual member riders. 
+
+### Deliverebles:
+By analyzing the [previous 12 months of Cyclistic trip data](https://divvy-tripdata.s3.amazonaws.com/index.html), I intend to produce a detailed presentation that includes the following deliverables:
+1. A clear statement of the business task
+2. A description of all data sources used
+3. Documentation of any cleaning or manipulation of data
+4. A summary of your analysis
+5. Supporting visualizations and key findings
+6. Your top three recommendations based on your analysis
+
 ## Data
 
 * **Data source** : Public data from Motivate International Inc. (Divvy Bicycle Sharing Service from Chicago) under this [license](https://www.divvybikes.com/data-license-agreement).
 * [Cyclistic’s historical trip data](https://divvy-tripdata.s3.amazonaws.com/index.html) (2013 onwards) available in `.csv` format. 
-* **Our date range** : May 2020 to April 2021 (608 MB data)
+* **Our date range** : Jan 2022 to Dec 2022
 * The dataset has individual ride records consisting of ride start-end date & time, station information, bike type, rider type (casual/member).
-* Data uploaded to Google Cloud Storage(GCS) in order to import the large files.
+* Data imported into **Microsoft SQL Server Management Studio**
 
 ## Processing and Cleaning
 
-* Data imported from GCS into **BigQuery** for manipulation and analysis using SQL.
-* Visualizations to be developed in **Google Data Studio**.
-* Datatypes made consistent and then consolidated into one view using [this query](https://github.com/shivamgarg444/Cyclistic-Case-Study/blob/main/uncleaned_compile.sql).
-* To assist in analysis, 4 new columns were added (start point location, end point location, ride start day name and ride duration in seconds).
-* `3,742,624` rows were returned but required cleaning.
+* Data imported into **Microsoft SQL Server Management Studio** for manipulation and analysis using SQL.
+* Visualizations to be developed in **Microsoft Power BI**.
+* Datatypes made consistent and then consolidated into one view using [this query]().
+* To assist in analysis, 4 new columns were added (ride length in meters, ride start day name and ride duration in seconds).
+* `5,563,947` rows were returned but required cleaning.
 * **Cleaning process** :
-  * Missing start and end station names found using [this query](station_check.sql).
-  * Other columns checked using [this query](columns_check.sql).
-  * Negative and zero ride duration values found using [this query](duration_check.sql).
-> Following the cleaning and consolidating data in one table, `3,476,354` rows were returned for proceeding to analysis. All of this was achieved using [this single master query](single_query.sql). `JOIN`, `WITH`, `UNION ALL`, `WHERE`, _subqueries_ and many other SQL functions were used here.
+  * Check eachs columns in ##uncleaned_data to find probems using [this query]().
+  * After checking, there are few problems needed to be fixed:
+     1. Negative and zero ride duration values found
+     2. Zero ride distance value found
+  * Remove negative and zero values using [this query]().
+> Following the cleaning and consolidating data in one table, `5,252,085` rows were returned for proceeding to analysis. `JOIN`, `WITH`, `UNION ALL`, `WHERE`, _subqueries_ and many other SQL functions were used.
 ## Analysis and Viz
 
-The final dataset containing trip data of roughly 3.4 million ride records was analyzed. 
+The final dataset containing trip data of roughly 5.2 million ride records was analyzed. 
 Visualizations were developed in Google Data Studio to observe differential trends between the usage by casual riders and annual members.  
 
 
